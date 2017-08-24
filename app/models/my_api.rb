@@ -9,8 +9,20 @@ module MyApi
   end
 
   class SourceProvider < Base
+    def self.table_name
+      "source-providers"
+    end
   end
 
   class CourseResult < Base
+    def self.table_name
+      "course-results"
+    end
+  end
+
+  class CourseResultHistory < Base
+    def self.table_name
+      "course-results/courses_history"
+    end
   end
 end
