@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :source_providers, only: [:index,:show]
-  resources :courses, only: [:index]
-  resources :users, only: [:index,:show]
-  get '/courses/history/', to: 'courses#history'
+  match '/login', to: 'users#login', via: 'post'
+  namespace 'api' do
+    resources :source_providers, only: [:index,:show]
+    resources :courses, only: [:index]
+  end
+  get '/api/courses/history', to: 'api/courses#history'
+#  match '/api/courses/history', to: 'api/courses#history', via: 'get'
 end
